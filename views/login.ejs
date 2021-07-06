@@ -1,0 +1,38 @@
+<!-- --------------------BOOTSTRAP------------------ -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="../public/css/login.css">
+<%- include("./partials/favicon.ejs") %>
+<img src="../public/img/logo.png" alt="Logo" class="logo">
+<div class="row">
+    <div class="col-lg-6">
+        <div class="container-fluid">
+            <h1>Log In</h1>
+            <hr id="hr">
+                    <form method="POST" action="/login" class="needs-validation" novalidate>
+                        <div>
+                        <input type="text" name="username" placeholder="username" class="element form-control" required>
+                        <div class="invalid-feedback">Please enter username!</div>
+                        </div>
+                          <br>
+                        <div>
+                        <input type="password" name="password" placeholder="password" class="element form-control" id="password" required>
+                        <div class="invalid-feedback">Please enter password!</div>
+                        </div>
+                          <br>
+                        <input type="checkbox" name="show" class="show" onclick="showpass()"> Show Password<br>
+                        <button class="btn btn-outline-success" id="log-in-btn"> Login </button>
+                      </form>
+    
+                    <span>Create an Account.<a href="/signup" id="signup">Sign Up</a> </span>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <img src="../public/img/Login-img.svg" alt="Log-in Image" class="log-in-img">
+    </div>  
+</div>
+
+<%- include("./partials/footer.ejs") %>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="../public/js/login.js"></script>

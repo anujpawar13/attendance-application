@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f6f6f6;
+}
+.logo{
+    width: 6%;
+    margin: 1rem 3rem;
+}
+
+h1 {
+    margin-left: 26%;
+}
+
+#hr {
+    height: 0.3rem;
+    background: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+}
+
+.container-fluid {
+    width: 60%;
+    margin: -4% auto 3% 30%;
+    position: relative;
+}
+
+.element {
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: 2%;
+}
+
+#log-in-btn {
+    width: 100%;
+    padding: 0.4rem 1.8rem;
+    margin: 1.8rem;
+    margin-left: 0;
+}
+
+span{
+    margin-left: auto;
+    font-size: 0.8rem;
+}
+
+a{
+    text-decoration: none;
+    /* color: #161d6f; */
+}
+
+#signup{
+    margin-left: 8px;
+}
+
+.log-in-img {
+    width: 70%;
+    margin-left: 5rem ;
+    margin-top: 5%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media only screen and ( max-width: 992px)
+{
+    .log-in-img{
+        display: none;
+    }
+
+    .container-fluid {
+        width: 40%;
+        margin-left: auto;
+        position: relative;
+    }
+}

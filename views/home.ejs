@@ -1,0 +1,304 @@
+<!-- --------------------BOOTSTRAP----------------------- -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="../public/css/home.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+<%- include("./partials/favicon.ejs") %>
+<%- include("./partials/header.ejs",{loc: "home"}); %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+<script>
+  var x =`<%- JSON.stringify(attendanceData) %>`;
+   var y=JSON.parse(x)
+   let z = y[0];
+   console.log(y,typeof(y))
+ console.log(z,typeof(z))
+ function edit(e){
+   var datestring = moment(y[e.id].attendance_date).format('YYYY-MM-DD');
+   var timestring = moment(y[e.id].attendance_date).format('hh:mm');
+   document.getElementById('sno_link').value= Number(e.id)+ Number(1);
+   document.getElementById('meet_url').value=y[e.id].url; 
+   document.getElementById('participants').value=y[e.id].data.length; 
+   document.getElementById('atten_id').value=y[e.id]._id;
+   document.getElementById('meet_date').value=datestring;
+   document.getElementById('meet_time').value= timestring;
+   document.getElementById('meet_creator').value=y[e.id].taker;
+   console.log(e);
+   
+ }
+ function deleteYes (e){
+
+//    var id = e.id;
+//    $.post(`/home/${id}/delete`,
+//  {
+   
+//  },
+//  function(data, status){
+//    window.location.reload();
+//  });
+let x = window.confirm("confirm Deletion?")
+if(x)
+{
+     var id = e.id;
+   $.post(`/home/${id}/delete`,
+ {
+   
+ },
+ function(data, status){
+   window.location.reload();
+ });
+}
+}
+
+</script>
+
+
+<div class="wrapper">
+    <table class="table table-bordered table-success table-striped table-hover table-responsive-lg border-dark" id="tab">
+      <div class="welcome">
+        <em><h1>Welcome, <%= username %></h1></em>
+        <em><p>Your attendance records,</p></em>
+      </div>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Meet Link</th>
+            <th scope="col">No. of Participants</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+         
+          <% for(let i=0; i < attendanceData.length; ++i) { %>
+             <tr>
+            <th scope="row"><%= (i+1) %></th>
+            <td><%= attendanceData[i].url %></td>
+            <td><%= attendanceData[i].data.length %></td>
+            <td><%= moment(attendanceData[i].attendance_date).format("DD/MM/YYYY") %></td>
+            <td><%= attendanceData[i].attendance_date.toLocaleTimeString('en-US') %></td>
+            <td><%= attendanceData[i].taker %></td>
+           <td class="control-col">
+             <div id="test">
+             </div>
+                <button type="submit" data-target="#delete-popup" id="<%= attendanceData[i]._id%>" onclick="deleteYes(this)" class="controls" title="Delete" ><i class="far fa-trash-alt"></i></button></form>
+               
+               <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="edit(this);"><i class="fas fa-pen" title="Edit" ></i></button>
+               <button class="controls" onclick="document.location='/home/<%= attendanceData[i]._id %>/details'"><i class="fab fa-readme" title="Read" ></i></button>
+           </td>
+        </tr>
+          <%}%>
+
+          <!-- Error -->
+          <!-- <tr>
+            <th scope="row">2</th>
+            <td>aaa-bbb-ccc</td>
+            <td>67</td>
+            <td>02/02/2021</td>
+            <td>6:00 PM</td>
+            <td>ABC</td>
+            <td>
+                <button class="controls"><i class="far fa-trash-alt"></i></button>
+                <button class="controls"><i class="fas fa-pen"></i></button>
+                <button class="controls"><i class="fab fa-readme"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>uuu-vvv-www</td>
+            <td>47</td>
+            <td>03/03/2021</td>
+            <td>8:00 AM</td>
+            <td>XYZ</td>
+            <td>
+                <button class="controls"><i class="far fa-trash-alt"></i></button>
+                <button class="controls"><i class="fas fa-pen"></i></button>
+                <button class="controls"><i class="fab fa-readme"></i></button>
+            </td>
+          </tr> -->
+          <!-- error -->
+        </tbody>
+      </table>
+      <div class="buttons">
+        <button class="btn btn-outline-success" data-target="#popup" >+ Add Entry</button> 
+        <button class="btn btn-outline-success"  data-target="#links-popup">Copy Code</button> 
+
+      </div>   
+</div>
+<!-- -------POPUP FOR ADDING ELEMENTS------ -->
+
+<div class="popup " id="popup">
+  <div class="popup-header">
+    <div class="title">Add Details</div>
+    <div data-close-button class="close-button">&times;</div>
+  </div>
+  <div class="popup-body">
+    <form class="needs-validation"action="/home"  method="POST"  novalidate>
+      <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
+      <div>
+      <input type="text" name="meet_url" placeholder="Meetlink" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+      <input type="date" name= "entered_date" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+      <input type="time" name= "entered_time" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+      <input type="text" name= "entered_taker" placeholder="Creator" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <button class="btn btn-success" type="submit">+ Add</button>
+    </form>
+  </div>
+</div>
+
+<div id="overlay"></div>
+
+<!-- Popup For Copying Code (Google Meet) -->
+
+<div class="popup" id="copy-popup-meet">
+  <div class="popup-header">
+    <div class="title">Copying Code (Google Meet)</div>
+    <div class="close-button" data-close-button>&times;</div>
+    </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate>
+      <lable for="passwordtext">Enter your Password</label><br>
+        <div>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtextMeet" required>
+          <div class="invalid-feedback">This field can't be empty</div>
+        </div>
+        <!-- <br> -->
+        <input type="checkbox" onclick="showPass()"><small> Show Password</small>
+    </form>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcodeMeet()">Get code</div>
+  </div>
+</div>
+
+<!-- Popup For Copying Code (Zoom) -->
+
+<div class="popup" id="copy-popup-zoom">
+  <div class="popup-header">
+    <div class="title">Copying Code (Zoom)</div>
+    <div class="close-button" data-close-button>&times;</div>
+    </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate>
+      <lable for="passwordtext">Enter your Password</label><br>
+        <div>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtextZoom" required>
+          <div class="invalid-feedback">This field can't be empty</div>
+        </div>
+        <!-- <br> -->
+        <input type="checkbox" onclick="showPass()"><small> Show Password</small>
+    </form>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcodeZoom()">Get code</div>
+  </div>
+</div>
+
+<!-- Popup For Copying Code (Microsoft Teams) -->
+
+<div class="popup" id="copy-popup-team">
+  <div class="popup-header">
+    <div class="title">Copying Code (Microsoft Teams)</div>
+    <div class="close-button" data-close-button>&times;</div>
+    </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate>
+      <lable for="passwordtext">Enter your Password</label><br>
+        <div>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtextTeam" required>
+          <div class="invalid-feedback">This field can't be empty</div>
+        </div>
+        <!-- <br> -->
+        <input type="checkbox" onclick="showPass()"><small> Show Password</small>
+    </form>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcodeTeam()">Get code</div>
+  </div>
+</div>
+
+
+<!-- state -->
+<!-- google Meet -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name_meet">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word_meet">
+<!-- Zoom -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name_zoom">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word_zoom">
+<!-- Microsoft Teams -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name_team">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word_team">
+
+<!-- Popup for editing -->
+
+<div class="popup " id="edit-popup">
+  <div class="popup-header">
+    <div class="title">Make Ammends</div>
+    <div data-close-button class="close-button">&times;</div>
+  </div>
+  <div class="popup-body">
+     <% for(let i=0; i<attendanceData.length; ++i) { %>
+    <%}%>
+    <form class="needs-validation" method="POST" action="/home/edit"  novalidate>
+      <input type="text" name="atten_id" style="display: none;visibility: hidden;" id="atten_id"  >
+      <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
+      <div>
+        <input type="text" name="enter_sno" placeholder="serial no" class="form-control element" id="sno_link" disabled>
+      </div>
+      <br>
+      <div>
+        <input type="text" name="meet_url" placeholder="meet url" class="form-control element" id="meet_url" disabled>
+        </div>
+        <br>
+        <div>
+          <input type="text" name="No. of Participants" placeholder="No. Of Particip  ants" class="form-control element" id="participants" disabled>
+        </div>
+        <br>
+        <div>
+          <input type="date" name= "entered_date" class="form-control element" required id="meet_date" >
+            <div class="invalid-feedback">This Field can't be empty</div>
+          </div>
+          <br>
+          <div>
+          <input type="time" name= "entered_time" class="form-control element" required id="meet_time">
+            <div class="invalid-feedback">This Field can't be empty</div>
+          </div>
+          <br>
+          <div>
+          <input type="text" name= "entered_taker" placeholder="Creator" class="form-control element" required id="meet_creator">
+            <div class="invalid-feedback">This Field can't be empty</div>
+          </div>
+          <br>
+          <button class="btn btn-outline-success" type="submit">Edit</button>
+    </form>
+  </div>
+</div>
+<!-- ---------------links popup for different platforms---------------------- -->
+<div class="link-body" id="links-popup">
+  <div class="popup-body link-div" id="#link-align">
+    <div class="links" data-target="#copy-popup-meet" data-close-link><span class="iconify" data-icon="logos-google-meet" data-inline="false" data-width="100px" data-height="100px"></span></div>
+    <div class="links" data-target="#copy-popup-zoom" data-close-link><span class="iconify" data-icon="grommet-icons:zoom" data-inline="false" data-width="100px" data-height="100px"></span></div>
+    <div class="links" data-target="#copy-popup-team" data-close-link><span class="iconify" data-icon="logos-google-gmail" data-inline="false" style="color: #4b53bc;" data-width="100px" data-height="100px"></span></div>
+
+
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
+<script src="../public/js/home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+<!--<form action="/home/<%# attendanceData[i]._id %>/delete"  method="post" style="display: inline;"> -->
+<!-- style="transform: scale(1);" -->

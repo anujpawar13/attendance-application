@@ -1,0 +1,100 @@
+/* Website base styling */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #f6f6f6;
+}
+
+
+h1{
+    text-align: center;
+    margin-top: -4%;
+    margin-left: 30%;
+}
+
+.logo {
+    width: 6%;
+    margin: 1rem 3rem;
+}
+.signup-image{
+    width: 80%;
+}
+
+/* Form CSS*/
+
+.container-fluid{
+    margin-left: 40%;
+    position: relative;
+    width: 50%;            
+}
+
+#hr{
+   height: 6px; 
+   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+   background-size: 400% 400%;
+   animation: gradient 5s ease infinite;
+   border-radius: 5%;
+   width: 30%;
+   margin-left: 50%;
+}
+
+.element{
+    margin: 0.5rem auto;
+    width: 100%;
+}
+
+#submit{
+    position: absolute;
+    right: 5%;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+span{
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Animation */
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media only screen and (max-width: 992px)
+{
+    .signup-image{
+        display: none;
+    }
+
+    h1{
+        margin-left: auto;
+    }
+
+    #hr{
+        margin-left: 35% ;
+        
+    }
+
+    .container-fluid{
+        margin-left: auto;
+        width: 40%;
+    }
+
+}
