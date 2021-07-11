@@ -1,39 +1,29 @@
-
 <link href="../../public/css/header.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="../../public/img/logo.png" alt="Logo" id="logo"></a>
-    <button class="navbar-toggler" id="but" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/home" tabindex="-1" ><i class="fas fa-home"></i> Home</a>
+
+  <nav class="navigation" id="navbar">
+    <div class="container-fluid">
+      <ul>
+        <li>
+          <a class="nav-link list-item1" href="/home"><i class="icon1"></i>Home</a>
         </li>
-        <br>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout" tabindex="-1" ><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <li>
+          <a class="nav-link list-item2" href="/about"><i class="icon2"></i>About</a>
         </li>
-      </ul>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="search()" id="search">
-        <!-- <select id="heading" name="heading">
-          <option value="name/link">Name/Link</option>
-          <option value="no. of participants">No. of Participants</option>
-          <option value="date">Date</option>
-          <option value="time">Time</option>
-          <option value="creator">Creator</option>
-        </select> -->
-        <% if( loc  == "home"){ %>
+        <li>
+          <a class="nav-link list-item3" href="/logout"><i class="icon4"></i>Logout</a>
+        </li>
+        <li>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="search()"
+            id="search">
+        </li>
+        <% if( loc=="home" ){ %>
           <%- include("./search_home.ejs") %>
-        <%} else if (loc == "details"){ %>
-          <%- include("./search_meetdetails.ejs") %>
-        <%}%>
+            <%} else if (loc=="details" ){ %>
+              <%- include("./search_meetdetails.ejs") %>
+                <%}%>
+      </ul>
     </div>
-  </div>
-</nav>
-
-
-
+  </nav>
+</div>

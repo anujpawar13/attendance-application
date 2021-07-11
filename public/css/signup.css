@@ -1,100 +1,171 @@
-/* Website base styling */
+/* ------ROOT CSS------ */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-body {
-    background: #f6f6f6;
-}
-
-
-h1{
-    text-align: center;
-    margin-top: -4%;
-    margin-left: 30%;
-}
-
-.logo {
-    width: 6%;
-    margin: 1rem 3rem;
-}
-.signup-image{
-    width: 80%;
-}
-
-/* Form CSS*/
-
-.container-fluid{
+  }
+  body {
+    background: white;
+    overflow-y: hidden;
+  }
+  
+  /* h1{
+      text-align: center;
+      margin-top: -4%;
+      margin-left: 30%;
+  }
+  
+  .logo {
+      width: 6%;
+      margin: 1rem 3rem;
+  }
+  .signup-image{
+      width: 80%;
+  }
+  
+  /* ------FORMS------*/
+  
+  .container-fluid {
     margin-left: 40%;
     position: relative;
-    width: 50%;            
-}
-
-#hr{
-   height: 6px; 
-   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-   background-size: 400% 400%;
-   animation: gradient 5s ease infinite;
-   border-radius: 5%;
-   width: 30%;
-   margin-left: 50%;
-}
-
-.element{
+    width: 50%;
+  }
+  
+  .element {
     margin: 0.5rem auto;
     width: 100%;
-}
-
-#submit{
-    position: absolute;
-    right: 5%;
-}
-
-
-a{
-    text-decoration: none;
-}
-
-span{
+  }
+  
+  span {
     display: block;
-    font-size: 0.8rem;
-    margin-top: 1rem;
-}
-
-/* Animation */
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-@media only screen and (max-width: 992px)
-{
-    .signup-image{
-        display: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .signup-image {
+    width: 90%;
+    height: 55%;
+    position: relative;
+    top: 10%;
+  }
+  
+  .container {
+    display: inline-block;
+    background: white;
+    border-radius: 15px;
+    margin: 25px 140px;
+    padding: 40px 25px;
+    box-shadow: #21252947 1px 20px 50px 0px;
+    height: auto;
+    width: 430px;
+  }
+  
+  .form-input {
+    margin: 10px 0px;
+    padding: 7px 13px;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    background: #eaeaea;
+    border: 2px solid #eaeaea;
+    transition: 0.3s all;
+    width: 80%;
+  }
+  
+  .form-input:focus {
+    background-color: white;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+  }
+  
+  .btn {
+    position: relative;
+    top: 1rem;
+    border: 3px solid #67b9ff;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2px 30px;
+    transition: 0.3s all;
+  }
+  
+  .btn:hover {
+    border: 3px solid rgba(68, 68, 255, 0.01);
+    background: rgba(103, 185, 255, 0.83);
+    box-shadow: 0px 18px 26px rgb(103 185 255 / 20%);
+    color: white;
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  
+  .row {
+    --bs-gutter-x: -0.5rem;
+  }
+  
+  /* ------VECTOR IMAGES------ */
+  
+  
+  .bg::after{
+    content: "";
+    background: url(/public/img/vector-img1.png) no-repeat center center;
+    background-size: 26rem 29rem;
+    width: 34rem;
+    height: 31rem;
+    position: absolute;
+    left: -9em;
+    top: -8em;
+    z-index: -1;
+  }
+  
+  .bg::before {
+    content: "";
+    background: url(/public/img/bg-vector.png) no-repeat center center;
+    background-size: 37rem 39rem;
+    width: 36rem;
+    height: 37rem;
+    position: absolute;
+    left: 14em;
+    top: 21em;
+    z-index: -1;
+  }
+  
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    margin: 10px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  /* ------RESPONSIVENESS------ */
+  
+  
+  @media only screen and (min-width: 990px) and (max-width: 1420px) {
+    .signup-image {
+      z-index: -2;
+      width: 90%;
+      height: 40%;
+      position: relative;
+      top: 18%;
     }
-
-    h1{
-        margin-left: auto;
-    }
-
-    #hr{
-        margin-left: 35% ;
-        
-    }
-
-    .container-fluid{
-        margin-left: auto;
-        width: 40%;
-    }
-
-}
+  }
+  
+  @media only screen and (min-width: 750px) and (max-width: 1000px) {
+    .container{
+    display: inline-block;
+    background: white;
+    border-radius: 15px;
+    margin: 10% 28%;
+    padding: 40px 25px;
+    box-shadow: #21252947 1px 20px 50px 0px;
+    height: 580px;
+    width: 430px;
+  }
+  }

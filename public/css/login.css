@@ -1,87 +1,161 @@
-*{
+/* ------ROOT CSS------ */
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-body{
-    background-color: #f6f6f6;
-}
-.logo{
-    width: 6%;
-    margin: 1rem 3rem;
-}
-
-h1 {
-    margin-left: 26%;
-}
-
-#hr {
-    height: 0.3rem;
-    background: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 8s ease infinite;
-}
-
-.container-fluid {
+  }
+  
+  body {
+    background: white;
+    overflow-y: hidden;
+  }
+  
+  /* ------CONTAINER------ */
+  
+  
+  .container-fluid {
     width: 60%;
     margin: -4% auto 3% 30%;
     position: relative;
-}
-
-.element {
+  }
+  
+  .element {
+    margin: 0.5rem auto;
     width: 100%;
-    margin-top: 1.2rem;
-    padding: 2%;
-}
-
-#log-in-btn {
-    width: 100%;
-    padding: 0.4rem 1.8rem;
-    margin: 1.8rem;
-    margin-left: 0;
-}
-
-span{
+  }
+  
+  span {
     margin-left: auto;
-    font-size: 0.8rem;
-}
-
-a{
-    text-decoration: none;
-    /* color: #161d6f; */
-}
-
-#signup{
-    margin-left: 8px;
-}
-
-.log-in-img {
+    font-size: 1rem;
+  }
+  
+  .log-in-img {
+    display: block;
+    width: 90%;
+    height: 55%;
+    position: relative;
+    top: 10%;
+  }
+  
+  .container {
+    display: inline-block;
+    background: white;
+    border-radius: 15px;
+    margin: 50px 140px;
+    padding: 40px 25px;
+    box-shadow: #21252947 1px 20px 50px 0px;
+    height: 505px;
+    width: 430px;
+  }
+  
+  /* -----FORM------ */
+  
+  .form-input {
+    margin: 10px 0;
+    padding: 7px 13px;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    background: #eaeaea;
+    border: 2px solid #eaeaea;
+    transition: 0.3s all;
     width: 70%;
-    margin-left: 5rem ;
-    margin-top: 5%;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-@media only screen and ( max-width: 992px)
-{
-    .log-in-img{
-        display: none;
+  }
+  
+  .form-input:focus {
+    background-color: white;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+  }
+  
+  .btn {
+    position: relative;
+    top: 5rem;
+    border: 3px solid #67b9ff;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2px 30px;
+    transition: 0.3s all;
+  }
+  
+  .btn:hover {
+    border: 3px solid rgba(68, 68, 255, 0.01);
+    background: rgba(103, 185, 255, 0.83);
+    box-shadow: 0px 18px 26px rgb(103 185 255 / 20%);
+    color: white;
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  
+  .row {
+    --bs-gutter-x: -0.5rem;
+  }
+  
+  /* ------VECTOR IMAGES------ */
+  
+  
+  .bg::after {
+    content: "";
+    background: url(/public/img/vector-img1.png) no-repeat center center;
+    background-size: 26rem 29rem;
+    width: 34rem;
+    height: 31rem;
+    position: absolute;
+    left: -9em;
+    top: -8em;
+    z-index: -1;
+  }
+  
+  .bg::before {
+    content: "";
+    background: url(/public/img/bg-vector.png) no-repeat center center;
+    background-size: 37rem 39rem;
+    width: 36rem;
+    height: 37rem;
+    position: absolute;
+    left: 14em;
+    top: 21em;
+    z-index: -1;
+  }
+  
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    margin: 10px 0px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  /* ------RESPONSIVENESS------ */
+  
+  
+  @media only screen and (min-width: 990px) and (max-width: 1420px) {
+    .log-in-img {
+      z-index: -2;
+      width: 90%;
+      height: 40%;
+      position: relative;
+      top: 18%;
     }
-
-    .container-fluid {
-        width: 40%;
-        margin-left: auto;
-        position: relative;
-    }
-}
+  }
+  
+  @media only screen and (min-width: 750px) and (max-width: 1000px) {
+    .container{
+    display: inline-block;
+    background: white;
+    border-radius: 15px;
+    margin: 10% 28%;
+    padding: 40px 25px;
+    box-shadow: #21252947 1px 20px 50px 0px;
+    height: 510px;
+    width: 430px;
+  }
+  }
