@@ -20,19 +20,7 @@
     display: none;
   }
   
-  /* ------DETAILS SECTION------ */
-  
-  .details::before {
-    content: "";
-    background: url("img/bg/bg-vector.png") no-repeat center center;
-    background-size: 716px 750px;
-    width: 690px;
-    height: 753.46px;
-    position: absolute;
-    left: -9em;
-    top: -3em;
-    z-index: -1;
-  }
+
   /* ------WHITE CONTAINER------ */
   
   .sidebar {
@@ -48,7 +36,7 @@
   
   .sidebar::before {
     content: "";
-    background: url(/public/img/bg-vector.png) no-repeat center center;
+    background: url(/public/img/meet-bg-vector.png) no-repeat center center;
     background-size: 28rem 28rem;
     width: 25rem;
     height: 28rem;
