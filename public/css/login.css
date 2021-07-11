@@ -1,161 +1,170 @@
 /* ------ROOT CSS------ */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  overflow-y: hidden;
+}
+
+/* ------CONTAINER------ */
+
+
+.container-fluid {
+  width: 60%;
+  margin: -4% auto 3% 30%;
+  position: relative;
+}
+
+.element {
+  margin: 0.5rem auto;
+  width: 100%;
+}
+
+span {
+  margin-left: auto;
+  font-size: 1rem;
+}
+
+.log-in-img {
+  display: block;
+  width: 90%;
+  height: 55%;
+  position: relative;
+  top: 10%;
+}
+
+.container {
+  display: inline-block;
+  background: white;
+  border-radius: 15px;
+  margin: 50px 140px;
+  padding: 40px 25px;
+  box-shadow: #21252947 1px 20px 50px 0px;
+  height: 505px;
+  width: 430px;
+}
+
+/* -----FORM------ */
+
+.form-input {
+  margin: 10px 0;
+  padding: 7px 13px;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  background: #eaeaea;
+  border: 2px solid #eaeaea;
+  transition: 0.3s all;
+  width: 70%;
+}
+
+.form-input:focus {
+  background-color: white;
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+}
+
+.btn {
+  position: relative;
+  top: 5rem;
+  border: 3px solid #67b9ff;
+  border-radius: 10px;
+  background-color: white;
+  padding: 2px 30px;
+  transition: 0.3s all;
+}
+
+.btn:hover {
+  border: 3px solid rgba(68, 68, 255, 0.01);
+  background: rgba(103, 185, 255, 0.83);
+  box-shadow: 0px 18px 26px rgb(103 185 255 / 20%);
+  color: white;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.row {
+  --bs-gutter-x: -0.5rem;
+}
+
+/* ------VECTOR IMAGES------ */
+
+
+.bg::after {
+  content: "";
+  background: url(/public/img/vector-img1.png) no-repeat center center;
+  background-size: 26rem 29rem;
+  width: 34rem;
+  height: 31rem;
+  position: absolute;
+  left: -9em;
+  top: -8em;
+  z-index: -1;
+}
+
+.bg::before {
+  content: "";
+  background: url(/public/img/bg-vector.png) no-repeat center center;
+  background-size: 31rem 18rem;
+  width: 36rem;
+  height: 37rem;
+  position: absolute;
+  left: 16em;
+  top: 12.5em;
+  z-index: -1;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 10px 0px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* ------RESPONSIVENESS------ */
+
+@media only screen and (max-width: 990px) {
+  body{
+    overflow-y: scroll;
   }
-  
-  body {
-    background: white;
-    overflow-y: hidden;
-  }
-  
-  /* ------CONTAINER------ */
-  
-  
-  .container-fluid {
-    width: 60%;
-    margin: -4% auto 3% 30%;
-    position: relative;
-  }
-  
-  .element {
-    margin: 0.5rem auto;
-    width: 100%;
-  }
-  
-  span {
-    margin-left: auto;
-    font-size: 1rem;
-  }
-  
+
   .log-in-img {
-    display: block;
-    width: 90%;
-    height: 55%;
-    position: relative;
-    top: 10%;
+    content-visibility: hidden;
   }
-  
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1420px) {
+  .log-in-img {
+    z-index: -2;
+    width: 90%;
+    height: 40%;
+    position: relative;
+    top: 18%;
+  }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
   .container {
     display: inline-block;
     background: white;
     border-radius: 15px;
-    margin: 50px 140px;
+    margin: 4% 28%;
     padding: 40px 25px;
     box-shadow: #21252947 1px 20px 50px 0px;
-    height: 505px;
+    height: 580px;
     width: 430px;
   }
-  
-  /* -----FORM------ */
-  
-  .form-input {
-    margin: 10px 0;
-    padding: 7px 13px;
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-    background: #eaeaea;
-    border: 2px solid #eaeaea;
-    transition: 0.3s all;
-    width: 70%;
-  }
-  
-  .form-input:focus {
-    background-color: white;
-    border: 2px solid #eaeaea;
-    border-radius: 10px;
-  }
-  
-  .btn {
-    position: relative;
-    top: 5rem;
-    border: 3px solid #67b9ff;
-    border-radius: 10px;
-    background-color: white;
-    padding: 2px 30px;
-    transition: 0.3s all;
-  }
-  
-  .btn:hover {
-    border: 3px solid rgba(68, 68, 255, 0.01);
-    background: rgba(103, 185, 255, 0.83);
-    box-shadow: 0px 18px 26px rgb(103 185 255 / 20%);
-    color: white;
-    cursor: pointer;
-  }
-  
-  a {
-    text-decoration: none;
-    margin-left: 15px;
-  }
-  
-  .row {
-    --bs-gutter-x: -0.5rem;
-  }
-  
-  /* ------VECTOR IMAGES------ */
-  
-  
-  .bg::after {
-    content: "";
-    background: url(/public/img/vector-img1.png) no-repeat center center;
-    background-size: 26rem 29rem;
-    width: 34rem;
-    height: 31rem;
-    position: absolute;
-    left: -9em;
-    top: -8em;
-    z-index: -1;
-  }
-  
-  .bg::before {
-    content: "";
-    background: url(/public/img/bg-vector.png) no-repeat center center;
-    background-size: 37rem 39rem;
-    width: 36rem;
-    height: 37rem;
-    position: absolute;
-    left: 14em;
-    top: 21em;
-    z-index: -1;
-  }
-  
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    margin: 10px 0px;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-  }
-  
-  /* ------RESPONSIVENESS------ */
-  
-  
-  @media only screen and (min-width: 990px) and (max-width: 1420px) {
-    .log-in-img {
-      z-index: -2;
-      width: 90%;
-      height: 40%;
-      position: relative;
-      top: 18%;
-    }
-  }
-  
-  @media only screen and (min-width: 750px) and (max-width: 1000px) {
-    .container{
-    display: inline-block;
-    background: white;
-    border-radius: 15px;
-    margin: 10% 28%;
-    padding: 40px 25px;
-    box-shadow: #21252947 1px 20px 50px 0px;
-    height: 510px;
-    width: 430px;
-  }
-  }
+}

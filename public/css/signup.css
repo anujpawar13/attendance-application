@@ -108,8 +108,7 @@
   
   /* ------VECTOR IMAGES------ */
   
-  
-  .bg::after{
+  .bg::after {
     content: "";
     background: url(/public/img/vector-img1.png) no-repeat center center;
     background-size: 26rem 29rem;
@@ -124,12 +123,12 @@
   .bg::before {
     content: "";
     background: url(/public/img/bg-vector.png) no-repeat center center;
-    background-size: 37rem 39rem;
+    background-size: 31rem 18rem;
     width: 36rem;
     height: 37rem;
     position: absolute;
-    left: 14em;
-    top: 21em;
+    left: 16em;
+    top: 12.5em;
     z-index: -1;
   }
   
@@ -146,6 +145,15 @@
   
   /* ------RESPONSIVENESS------ */
   
+  @media only screen and (max-width: 990px) {
+    body{
+      overflow-y: scroll;
+    }
+  
+    .signup-image {
+      content-visibility: hidden;
+    }
+  }
   
   @media only screen and (min-width: 990px) and (max-width: 1420px) {
     .signup-image {
@@ -158,14 +166,15 @@
   }
   
   @media only screen and (min-width: 750px) and (max-width: 1000px) {
-    .container{
-    display: inline-block;
-    background: white;
-    border-radius: 15px;
-    margin: 10% 28%;
-    padding: 40px 25px;
-    box-shadow: #21252947 1px 20px 50px 0px;
-    height: 580px;
-    width: 430px;
+    .container {
+      display: inline-block;
+      background: white;
+      border-radius: 15px;
+      margin: 4% 28%;
+      padding: 40px 25px;
+      box-shadow: #21252947 1px 20px 50px 0px;
+      height: 580px;
+      width: 430px;
+    }
   }
-  }
+  
