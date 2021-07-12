@@ -1,0 +1,73 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<link rel="stylesheet" href="/public/css/about.css">
+
+  <%- include("./partials/header.ejs",{loc: "home" }); %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"></script>
+
+<body>
+    <div class="intro">
+        <h1>Online Attendance Application<span class="iconify app-logo" data-icon="bi:pencil-square"
+                data-inline="false"></span></h1>
+        <br>
+        <h3>Overview</h3>
+        <p>Since last year due to Covid-19, Schools and Colleges has been shut down for the safety of teachers as well
+            as students. So, they decided to shift to 'online-only' mode which means they start conducting everyday
+            classes and exams online on several video conferencing platforms such as Google Meet, Zoom and Microsoft
+            Teams. But this sudden change was complicated for some teachers as they were not as much familiar with the
+            techonology as others. A simple task such as taking Attendance of students wasted their lot of time due to
+            connectivity issues or any other technical problem.
+            To tackle this situation, we decided to create an application which would help teachers to take Attendance
+            faster and effortlessly.
+            This application can also help in professional meetings, incase someone wants to quickly inscribe the number
+            of members in that particular meeting. </p>
+        <br>
+        <p><b> Made by Abhishek Chauhan, Anuj Pawar and Vinay Mishra (Students at Ganga Institute of Techonology and
+                Management, MDU Rohtak) </b>
+        </p>
+        <br>
+    </div>
+    <div class="tut">
+        <h3>Tutorial</h3>
+        <ul>
+            <li>
+                <h4>Step 1</h4>
+                <p>Login to you account. If you don't have an account, Register to create a new account. 
+                    <img src="/public/img/sign-in-page.jpg" alt="sign-in-page">
+                </p>
+            </li>
+            <li>
+                <h4>Step 2</h4>
+                <p>After login process, you will be redirected to your dashboard where you can see all your meetings
+                    records. To add a new meeting, click on 'Copy Code > Select Google Meet > Enter you password > Click
+                    on 'Get Code' and your code will be copied.
+            </li>
+            <li>
+                <h4>Step 3</h4>
+                <p>Now, go to your ongoing Google Meeting > Click on 'Show Everyone' button on bottom right section >
+                    Right click on the panel and select inspect > Go to 'Console' tab and paste the code you copied. You
+                    will be redirected to new tab, where you can see the record of your ongoing meeting.
+                    <img src="/public/img/meet-page.jpg" alt="meet-page"></p>
+            </li>
+            <li>
+                <h4>Step 4</h4>
+                <p>From dashboard, you can <b>Read <span style="color: rgb(88, 185, 84);" class="iconify read"
+                            data-icon="fa-solid:book-open" data-inline="false"></span>, &nbsp; Edit <span
+                            style="color: rgb(39, 94, 245);" class="iconify" data-icon="clarity:edit-solid"
+                            data-inline="false"></span> &nbsp; or Delete <span style="color: rgb(230, 62, 62);" class="iconify"
+                            data-icon="ant-design:delete-filled" data-inline="false"></span></b> &nbsp; your records by
+                    clicking the buttons corresponding to each record.<img src="/public/img/main-page.jpg" alt="main-page"> </p>
+            </li>
+            <li>
+                <h4>Step 5</h4>
+                <p>When you click on the 'read' button, you can see
+                    the Details of that meeting. From details page, you can add a participant manually and can also
+                    download a PDF file of that meeting.<img src="/public/img/details-page.jpg" alt="details-page"> </p>
+            </li>
+        </ul>
+    </div>
+
+</body>
