@@ -1,7 +1,7 @@
 {
-  "name": "chatapp",
+  "name": "attendance-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Online Attendance Application",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simarpreet7/chatapp.git"
+    "url": "https://github.com/anujpawar13/attendance-application"
   },
-  "author": "",
+  "author": "Anuj Pawar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/simarpreet7/chatapp/issues"
+    "url": "https://github.com/anujpawar13/attendance-application"
   },
-  "homepage": "https://github.com/simarpreet7/chatapp#readme",
+  "homepage": "home.ejs",
   "dependencies": {
     "async": "^3.2.0",
     "body-parser": "^1.19.0",
